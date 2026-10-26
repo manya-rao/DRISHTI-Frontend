@@ -437,22 +437,41 @@ td small {
 
 /* Main application layout */
 
+
+/* DRISHTI desktop layout */
 .app-layout {
-  display: flex;
   min-height: 100vh;
-  align-items: stretch;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 255px;
+  height: 100vh;
+  min-height: 100vh;
+  overflow-y: auto;
+  background: #102a35;
+  z-index: 100;
+
+  /* Preserve your existing sidebar padding and flex styles */
 }
 
 .app-main {
-  flex: 1;
+  margin-left: 255px;
+  width: calc(100% - 255px);
   min-width: 0;
   min-height: 100vh;
 }
 
 .app-main .dashboard {
+  width: 100%;
   max-width: 1500px;
+  min-width: 0;
   margin: 0 auto;
 }
+
 
 @media (max-width: 700px) {
   .app-layout {

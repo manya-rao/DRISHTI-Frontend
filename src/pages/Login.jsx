@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { BrainCircuit, Mail, Lock, Eye, EyeOff } from "lucide-react";
 
-export default function Login() {
+export default function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -11,9 +11,13 @@ export default function Login() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    setMessage(
-      "Demo mode: authentication is not connected yet. No login was performed."
-    );
+    if (!email.trim() || !password) {
+      setMessage("Please enter your email and password.");
+      return;
+    }
+
+    // Demo navigation only — not real authentication.
+    onLogin();
   }
 
   return (
@@ -57,7 +61,7 @@ export default function Login() {
             <button
               type="button"
               className="password-toggle"
-              onClick={() => setShowPassword(!showPassword)}
+              onClick={() => setShowPassword((current) => !current)}
               aria-label={showPassword ? "Hide password" : "Show password"}
             >
               {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
@@ -72,7 +76,7 @@ export default function Login() {
         {message && <p className="login-message">{message}</p>}
 
         <p className="login-demo-note">
-          Demonstration interface · Authentication not connected
+          Demo mode · Credentials are not verified
         </p>
       </section>
     </main>

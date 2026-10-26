@@ -5,7 +5,7 @@ import {
   Zap,
   Bell,
   ChartNoAxesCombined,
-  LogIn,
+  LogOut,
   BrainCircuit,
 } from "lucide-react";
 
@@ -15,7 +15,7 @@ const navigationItems = [
   { label: "Energy Monitoring", icon: Zap, page: "EnergyMonitoring" },
   { label: "Alerts", icon: Bell, page: "Alerts" },
   { label: "Analytics & Reports", icon: ChartNoAxesCombined, page: "AnalyticsReports" },
-  { label: "Login", icon: LogIn, page: "Login" },
+  { label: "Logout", icon: LogOut, page: "Logout" },
 ];
 
 export default function Sidebar({ activePage, onNavigate }) {
